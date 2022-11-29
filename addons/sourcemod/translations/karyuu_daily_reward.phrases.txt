@@ -1,0 +1,17 @@
+﻿"Phrases"
+{
+	"Error_AlreadyClaimed"
+	{
+		"en"				"You have already collected your daily reward. Please try again tomorrow."
+	}
+	"Error_NotEnoughTime"
+	{
+		"#format" "{1:d}"
+		"en"				"You didn't play enough time to collect your daily reward. You need to play {1} more minutes today."
+	}
+	"Success"
+	{
+		"#format" "{1:d}"
+		"en"				"You have collected your daily reward. You have been awarded with {1} credits."
+	}
+}

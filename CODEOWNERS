@@ -1,2 +1,6 @@
 # The owner of everything in this repository
 *       @K4ryuu
+
+# DateTime library, which is amazing
+/addons/sourcemod/scripting/include/DateTime.inc @KillStr3aK
+/addons/sourcemod/scripting/include/DateTime/* @KillStr3aK
