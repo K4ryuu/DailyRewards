@@ -15,7 +15,7 @@
     <b>PayPal:</b> paypal@kitsune-lab.dev<br/>
     <b>Patreon:</b> https://www.patreon.com/kitsunelab
     <h2 align="center">Credits</h2>
-    <a href="https://github.com/KillStr3aK">KillStr3aK</a> for <a href="https://github.com/KillStr3aK/DateTime">DateTime Library</a>
+    <a href="https://github.com/KillStr3aK">@KillStr3aK</a> for <a href="https://github.com/KillStr3aK/DateTime">DateTime Library</a>
 </div>
 
 <p align="center">
