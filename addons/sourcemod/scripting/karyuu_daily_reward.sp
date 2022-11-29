@@ -50,9 +50,9 @@ public void OnPluginStart()
 	}
 
 	// --> Register client cookies
-	g_hDailyDate		= new Cookie("KaryuuDailyDate", "Stores the last date when the client has claimed the rewards.", CookieAccess_Protected);
-	g_hDailyTime		= new Cookie("KaryuuDailyTime", "Stores how many minutes did the client has played today.", CookieAccess_Protected);
-	g_hLastSeen			= new Cookie("KaryuuLastSeen", "Stores the last time the client has been seen.", CookieAccess_Protected);
+	g_hDailyDate		= new Cookie("Karyuu_DailyDate", "Stores the last date when the client has claimed the rewards.", CookieAccess_Protected);
+	g_hDailyTime		= new Cookie("Karyuu_DailyTime", "Stores how many minutes did the client has played today.", CookieAccess_Protected);
+	g_hLastSeen			= new Cookie("Karyuu_LastSeen", "Stores the last time the client has been seen.", CookieAccess_Protected);
 
 	// --> Register convars
 	g_hConVarCommads	= CreateConVar("kit_daily_commands", "sm_daily;sm_reward;sm_claim", "Commands to claim the daily reward (Separated with ';' (max 31), if already exists the command wont be registered (skipped))");
@@ -124,6 +124,10 @@ public void OnClientCookiesCached(int iClient)
 		char sDate[32];
 		g_hDailyDate.Get(iClient, STRING(sDate));
 
+		// --> Set a starting date for the cookies, if it's empty
+		if (Karyuu_IsStringEmpty(sDate))
+			FormatEx(STRING(sDate), "2010-01-01");
+
 		// --> Check if the last claim date is older than today
 		DateTime dtParsed, dtNow = new DateTime(DateTime_Now);
 		g_bClientCanClaim[iClient] = DateTime.TryParse(sDate, dtParsed) && (RoundToFloor(dtParsed.TotalDays) < RoundToFloor(dtNow.TotalDays));
@@ -149,7 +153,7 @@ public void OnClientCookiesCached(int iClient)
 
 		// --> Update the last seen date
 		dtNow.ToString(STRING(sDate), "%Y-%m-%d");
-		Karyuu_SetCookieString(g_hDailyDate, iClient, sDate);
+		Karyuu_SetCookieString(g_hLastSeen, iClient, sDate);
 	}
 }
 
